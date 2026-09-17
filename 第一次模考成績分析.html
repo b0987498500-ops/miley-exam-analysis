@@ -1,0 +1,1999 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>115第一次會考模考成績全科目深度診斷報告 - 陳意涵</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --accent: #6366f1;
+      --success: #059669;
+      --success-light: #ecfdf5;
+      --info: #0284c7;
+      --info-light: #f0f9ff;
+      --warning: #d97706;
+      --warning-light: #fffbeb;
+      --danger: #dc2626;
+      --danger-light: #fef2f2;
+      --border: #e2e8f0;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 12px 24px -4px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
+      --shadow-lg: 0 20px 32px -6px rgba(15, 23, 42, 0.12), 0 8px 16px -4px rgba(15, 23, 42, 0.06);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Outfit', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-size: 19px;
+      line-height: 1.75;
+      padding: 32px 20px 80px 20px;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* Scroll Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    /* Hero Banner */
+    .hero-card {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: #ffffff;
+      border-radius: var(--radius);
+      padding: 44px 40px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(0,0,0,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #93c5fd;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .hero-title {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .hero-meta {
+      font-size: 20px;
+      color: #cbd5e1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin-top: 10px;
+    }
+
+    /* Big Metric Grid */
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .metric-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .metric-label {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .metric-val {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--text-main);
+      font-family: 'Outfit', sans-serif;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .metric-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .highlight-pill {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .pill-green { background: var(--success-light); color: var(--success); }
+    .pill-blue { background: var(--primary-light); color: var(--primary); }
+    .pill-amber { background: var(--warning-light); color: var(--warning); }
+    .pill-red { background: var(--danger-light); color: var(--danger); }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 34px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      letter-spacing: -0.3px;
+    }
+
+    .section-title .icon-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    /* Subject Cards */
+    .subject-list { display: flex; flex-direction: column; gap: 20px; }
+
+    .subject-row {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 140px 1fr 230px;
+      gap: 24px;
+      align-items: center;
+      transition: all 0.25s ease;
+    }
+
+    .subject-row:hover {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-sm);
+      transform: scale(1.006);
+    }
+
+    .subj-header { display: flex; flex-direction: column; gap: 6px; }
+    .subj-name { font-size: 24px; font-weight: 800; color: var(--text-main); }
+    .subj-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 17px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .badge-A { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+    .badge-Bpp { background: #e0f2fe; color: #0369a1; border: 1px solid #7dd3fc; }
+    .badge-Bp { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+
+    .subj-details { display: flex; flex-direction: column; gap: 8px; }
+    .detail-text { font-size: 19px; color: var(--text-main); }
+
+    .progress-track {
+      background: #e2e8f0;
+      height: 12px;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .bar-A { background: linear-gradient(90deg, #10b981, #059669); }
+    .bar-Bpp { background: linear-gradient(90deg, #38bdf8, #0284c7); }
+    .bar-Bp { background: linear-gradient(90deg, #fbbf24, #d97706); }
+
+    .subj-gap {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+
+    .gap-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .gap-red { background: #fee2e2; color: #b91c1c; }
+    .gap-green { background: #ecfdf5; color: #047857; }
+    .gap-blue { background: #eff6ff; color: #1d4ed8; }
+    .gap-amber { background: #fffbeb; color: #b45309; }
+
+    /* Drawers */
+    details.drawer {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    details.drawer[open] {
+      border-color: #93c5fd;
+      box-shadow: var(--shadow-md);
+    }
+
+    summary.drawer-header {
+      list-style: none;
+      padding: 26px 32px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background: #ffffff;
+      transition: background 0.2s ease;
+    }
+
+    summary.drawer-header::-webkit-details-marker { display: none; }
+    summary.drawer-header:hover { background: #f8fafc; }
+
+    .drawer-title-group { display: flex; align-items: center; gap: 16px; }
+
+    .drawer-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #eff6ff;
+      color: #2563eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .drawer-title { font-size: 22px; font-weight: 800; color: var(--text-main); }
+    .drawer-hint { font-size: 16px; color: var(--text-muted); margin-top: 2px; }
+
+    .drawer-action {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .arrow-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.35s ease;
+    }
+
+    details.drawer[open] .arrow-icon {
+      transform: rotate(180deg);
+      background: #dbeafe;
+    }
+
+    .drawer-body {
+      padding: 10px 32px 34px 32px;
+      border-top: 1px solid #f1f5f9;
+      background: #ffffff;
+    }
+
+    /* Tables */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 18px;
+    }
+
+    .data-table th, .data-table td {
+      padding: 16px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .data-table tr.highlight-row { background: #eff6ff; font-weight: 700; }
+    .data-table tr:hover { background: #f8fafc; }
+
+    /* Callouts */
+    .callout-box {
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin: 20px 0;
+      font-size: 18px;
+      line-height: 1.7;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .callout-blue { background: #eff6ff; border-left: 5px solid #3b82f6; color: #1e3a8a; }
+    .callout-green { background: #f0fdf4; border-left: 5px solid #22c55e; color: #14532d; }
+    .callout-amber { background: #fffbeb; border-left: 5px solid #f59e0b; color: #78350f; }
+
+    /* PDF Buttons */
+    .pdf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .pdf-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--text-main);
+      transition: all 0.25s ease;
+    }
+
+    .pdf-card:hover {
+      background: #ffffff;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pdf-badge {
+      background: #fee2e2;
+      color: #dc2626;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 8px;
+    }
+
+    .pdf-info { flex: 1; }
+    .pdf-title { font-size: 17px; font-weight: 700; line-height: 1.4; }
+    .pdf-sub { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+
+    footer { text-align: center; margin-top: 60px; font-size: 16px; color: var(--text-muted); }
+
+    @media (max-width: 768px) {
+      body { font-size: 17px; padding: 20px 14px 60px 14px; }
+      .hero-card { padding: 30px 22px; }
+      .hero-title { font-size: 28px; }
+      .subject-row { grid-template-columns: 1fr; gap: 14px; }
+      .subj-gap { align-items: flex-start; text-align: left; }
+      summary.drawer-header { padding: 20px; }
+      .drawer-body { padding: 10px 20px 24px 20px; }
+    }
+  
+    /* Tab Navigation System */
+    .nav-tabs-wrapper {
+      position: sticky;
+      top: 14px;
+      z-index: 999;
+      margin-bottom: 30px;
+      padding: 0 4px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 10px;
+      background: rgba(241, 245, 249, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 8px;
+      border-radius: 20px;
+      border: 1px solid rgba(203, 213, 225, 0.8);
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+    }
+
+    .nav-tab-btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 16px 24px;
+      border: none;
+      border-radius: 14px;
+      font-size: 20px;
+      font-weight: 800;
+      font-family: inherit;
+      cursor: pointer;
+      color: #64748b;
+      background: transparent;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+
+    .nav-tab-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .nav-tab-btn.active {
+      background: #ffffff;
+      color: var(--primary);
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.14), 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-tab-btn .tab-icon {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .tab-pane {
+      display: none;
+      animation: fadeInTab 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeInTab {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Strategy View Specific Components */
+    .strategy-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #1e293b 100%);
+      color: #ffffff;
+      border-radius: var(--radius);
+      padding: 44px 40px;
+      margin-bottom: 34px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .strategy-hero::after {
+      content: "";
+      position: absolute;
+      top: -90px;
+      right: -90px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.28) 0%, rgba(0,0,0,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .path-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    @media (max-width: 900px) {
+      .path-grid { grid-template-columns: 1fr; }
+      .nav-tab-btn { font-size: 17px; padding: 12px 14px; }
+      .nav-tab-btn .tab-icon { font-size: 20px; }
+    }
+
+    .path-card {
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .path-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .path-card.shimizu {
+      border-top: 6px solid #2563eb;
+    }
+
+    .path-card.ntvs {
+      border-top: 6px solid #7c3aed;
+    }
+
+    .path-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+
+    .badge-shimizu { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+    .badge-ntvs { background: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
+
+    .path-title {
+      font-size: 27px;
+      font-weight: 800;
+      line-height: 1.3;
+      color: var(--text-main);
+    }
+
+    .stat-bar-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 20px;
+    }
+
+    .stat-bar-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .stat-bar-val {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text-main);
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-top: 18px;
+      font-size: 18px;
+    }
+
+    .matrix-table th, .matrix-table td {
+      padding: 18px 22px;
+      line-height: 1.7;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .matrix-table th {
+      background: #f1f5f9;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .matrix-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .matrix-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .matrix-dim {
+      font-weight: 800;
+      color: #1e293b;
+      white-space: nowrap;
+      width: 17%;
+      background: #f8fafc;
+    }
+
+    .matrix-col-a { width: 41.5%; border-left: 1px solid var(--border); }
+    .matrix-col-b { width: 41.5%; border-left: 1px solid var(--border); }
+
+    .tag-highlight {
+      display: inline-block;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Top Sticky Navigation Tabs -->
+    <nav class="nav-tabs-wrapper">
+      <div class="nav-tabs">
+        <button class="nav-tab-btn active" data-tab="tab-diagnosis" onclick="switchTab('tab-diagnosis')">
+          <span class="tab-icon">📊</span>
+          <span>模考成績與各科診斷</span>
+        </button>
+        <button class="nav-tab-btn" data-tab="tab-strategy" onclick="switchTab('tab-strategy')">
+          <span class="tab-icon">🧭</span>
+          <span>高中職與大學升學戰略剖析</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- TAB 1: 模考成績與各科診斷 -->
+    <div id="tab-diagnosis" class="tab-pane active">
+
+    
+    <!-- Hero Banner (Fade on scroll) -->
+    <header class="hero-card reveal">
+      <div class="badge-tag">
+        <span>★</span> 115 學年度 第一次國中教育會考模擬測驗（第 1~2 冊）
+      </div>
+      <h1 class="hero-title">陳意涵 全學科深度診斷與落點報告</h1>
+      <div class="hero-meta">
+        <span>🏫 <strong>學校：</strong> 新北市立中正國中</span>
+        <span>🆔 <strong>帳號：</strong> 014555090417</span>
+        <span>🎯 <strong>個別序位：</strong> 28.69% ~ 29.07%</span>
+      </div>
+    </header>
+
+    <!-- 4 大核心指標 (Fade on scroll) -->
+    <section class="metric-grid reveal">
+      <div class="metric-card">
+        <div>
+          <div class="metric-label">等級組合標示</div>
+          <div class="metric-val" style="color: #2563eb;">3A 1B++ 1B+</div>
+        </div>
+        <div class="metric-sub">
+          <span class="highlight-pill pill-green">3 精熟 (數/英/自)</span>
+          <span class="highlight-pill pill-blue">2 基礎 (國/社)</span>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div>
+          <div class="metric-label">總積分（基北區 36 制）</div>
+          <div class="metric-val" style="color: #059669;">22 <span style="font-size: 22px; color: var(--text-muted);">/ 36</span></div>
+        </div>
+        <div class="metric-sub">3×5 (A) + 4 (B++) + 3 (B+) = 22 分</div>
+      </div>
+
+      <div class="metric-card">
+        <div>
+          <div class="metric-label">校內排名</div>
+          <div class="metric-val" style="color: #d97706;">108 <span style="font-size: 22px; color: var(--text-muted);">/ 576</span></div>
+        </div>
+        <div class="metric-sub">校內前 <strong>18.75%</strong>（PR <strong>81</strong> 前段班）</div>
+      </div>
+
+      <div class="metric-card">
+        <div>
+          <div class="metric-label">官方個別序位區間</div>
+          <div class="metric-val" style="color: #475569; font-size: 32px;">28.69%~29%</div>
+        </div>
+        <div class="metric-sub">全區 16,786 ~ 17,006 人區間</div>
+      </div>
+    </section>
+
+    <!-- 五科表現與升級差距 (Fade on scroll) -->
+    <section class="section-card reveal">
+      <div class="section-title">
+        <span class="icon-badge">📊</span>
+        <span>五大考科戰力現況與升級差距</span>
+      </div>
+      
+      <div class="subject-list">
+        
+        <!-- 國文 -->
+        <div class="subject-row">
+          <div class="subj-header">
+            <div class="subj-name">國文</div>
+            <div class="subj-badge badge-Bpp">基礎 (B++)</div>
+          </div>
+          <div class="subj-details">
+            <div class="detail-text">
+              答對 <strong>34 / 42 題</strong>（答對率 80.95%）｜ 文言文與語常 <strong>100% 全對</strong>
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar bar-Bpp" style="width: 92%;"></div>
+            </div>
+          </div>
+          <div class="subj-gap">
+            <span class="gap-badge gap-red">距離 A 僅差 3 題！</span>
+            <span style="font-size: 15px; color: var(--text-muted);">撿回 3 題粗心即跨入 A</span>
+          </div>
+        </div>
+
+        <!-- 數學 -->
+        <div class="subject-row">
+          <div class="subj-header">
+            <div class="subj-name">數學</div>
+            <div class="subj-badge badge-A">精熟 (A)</div>
+          </div>
+          <div class="subj-details">
+            <div class="detail-text">
+              選擇 <strong>22/25</strong> ｜ 非選 <strong>3/6 分</strong> ｜ 加權 <strong>82.30</strong> ｜ 代數幾何全勝
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar bar-A" style="width: 82%;"></div>
+            </div>
+          </div>
+          <div class="subj-gap">
+            <span class="gap-badge gap-blue">距 A+ 僅差 3.4 分</span>
+            <span style="font-size: 15px; color: var(--text-muted);">非選補上步驟直攻 A+</span>
+          </div>
+        </div>
+
+        <!-- 英語 -->
+        <div class="subject-row">
+          <div class="subj-header">
+            <div class="subj-name">英語</div>
+            <div class="subj-badge badge-A">精熟 (A)</div>
+          </div>
+          <div class="subj-details">
+            <div class="detail-text">
+              閱讀 <strong>40/43 (精熟)</strong> ｜ 聽力 <strong>20/21 (基礎)</strong> ｜ 加權 <strong>93.47</strong>
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar bar-A" style="width: 93%;"></div>
+            </div>
+          </div>
+          <div class="subj-gap">
+            <span class="gap-badge gap-green">長篇閱讀 20 題全對</span>
+            <span style="font-size: 15px; color: var(--text-muted);">距 A+ 差 2.81 分</span>
+          </div>
+        </div>
+
+        <!-- 自然 -->
+        <div class="subject-row">
+          <div class="subj-header">
+            <div class="subj-name">自然</div>
+            <div class="subj-badge badge-A">精熟 (A)</div>
+          </div>
+          <div class="subj-details">
+            <div class="detail-text">
+              答對 <strong>42 / 50 題</strong>（答對率 84.00%）｜ 生物營養/理化實驗 <strong>100% 全對</strong>
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar bar-A" style="width: 84%;"></div>
+            </div>
+          </div>
+          <div class="subj-gap">
+            <span class="gap-badge gap-green">精準踩上 A 門檻</span>
+            <span style="font-size: 15px; color: var(--text-muted);">補強「光與熱」直攻 A+</span>
+          </div>
+        </div>
+
+        <!-- 社會 -->
+        <div class="subject-row">
+          <div class="subj-header">
+            <div class="subj-name">社會</div>
+            <div class="subj-badge badge-Bp">基礎 (B+)</div>
+          </div>
+          <div class="subj-details">
+            <div class="detail-text">
+              答對 <strong>34 / 54 題</strong>（答對率 62.96%）｜ 史前清領 <strong>83%</strong>、自然地理 <strong>75%</strong>
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar bar-Bp" style="width: 63%;"></div>
+            </div>
+          </div>
+          <div class="subj-gap">
+            <span class="gap-badge gap-amber">距 B++ 差 5 題</span>
+            <span style="font-size: 15px; color: var(--text-muted);">公民與日治戰後為最大金礦</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 標題抽屜 1：官方個別序位查詢 (Fade on scroll) -->
+    <details class="drawer reveal" open>
+      <summary class="drawer-header">
+        <div class="drawer-title-group">
+          <div class="drawer-icon">🎯</div>
+          <div>
+            <div class="drawer-title">官方個別序位查詢結果（基北考區免試入學指標）</div>
+            <div class="drawer-hint">系統官方核定：意涵落於基北區 28.69% ~ 29.07% 區間</div>
+          </div>
+        </div>
+        <div class="drawer-action">
+          <span>展開 / 收合</span>
+          <div class="arrow-icon">▼</div>
+        </div>
+      </summary>
+      <div class="drawer-body">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>成績依據</th>
+              <th>（區域）比率區間</th>
+              <th>（區域）累積人數區間</th>
+              <th>備註說明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td><strong>區排（無作文）</strong></td>
+              <td><strong>28.69% ~ 29.07%</strong></td>
+              <td><strong>16,786 人 ~ 17,006 人</strong></td>
+              <td>成績單正式公佈版</td>
+            </tr>
+            <tr>
+              <td>區排（含作文）</td>
+              <td>待公佈</td>
+              <td>待公佈</td>
+              <td>第二階段放榜版（預計考後不含假日第 8 天放榜）</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="callout-box callout-blue">
+          <span>📌</span>
+          <div>
+            <strong>個別序位落點解密：</strong> 意涵在基北區近 6 萬名考生中穩定排在前 28.8% 區間。這個排位為公立高中錄取的極度安全帶，對應雙北公立高中志願選擇相當充裕！
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 標題抽屜 2：基北區高中志願落點深度分析 (Fade on scroll) -->
+    <details class="drawer reveal" open>
+      <summary class="drawer-header">
+        <div class="drawer-title-group">
+          <div class="drawer-icon">🏫</div>
+          <div>
+            <div class="drawer-title">基北區高中志願落點預估（3A 1B++ 1B+ ／ 22~23分區間）</div>
+            <div class="drawer-hint">依據新北市土城中正國中考區、歷年基北區錄取標準與官方個別序位推估</div>
+          </div>
+        </div>
+        <div class="drawer-action">
+          <span>展開 / 收合</span>
+          <div class="arrow-icon">▼</div>
+        </div>
+      </summary>
+      <div class="drawer-body">
+        <h4 style="font-size: 21px; color: #059669; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+          <span>🟢</span> 穩健把握區（把握度 &gt; 90%，當前 22~23 分落點）
+        </h4>
+        <table class="data-table" style="margin-bottom: 24px;">
+          <thead>
+            <tr>
+              <th>學校名稱</th>
+              <th>行政區 / 就學考量</th>
+              <th>歷年錄取估計門檻</th>
+              <th>意涵錄取評析</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row" style="background: #f0fdf4;">
+              <td><strong>市立清水高中</strong></td>
+              <td>新北市土城區（在地就近）</td>
+              <td>約 19 ~ 21 分</td>
+              <td><span class="highlight-pill pill-green">穩上 · 繁星前段優勢</span> 中正國中就近首選，享有極高大學繁星推薦優勢</td>
+            </tr>
+            <tr>
+              <td><strong>市立錦和高中</strong></td>
+              <td>新北市中和區（臨近土城）</td>
+              <td>約 20 ~ 22 分</td>
+              <td><span class="highlight-pill pill-green">高把握</span> 雙和地區優質完全中學</td>
+            </tr>
+            <tr>
+              <td><strong>市立丹鳳高中</strong></td>
+              <td>新北市新莊區（捷運直達）</td>
+              <td>約 20 ~ 22 分</td>
+              <td><span class="highlight-pill pill-green">高把握</span> 數理與語文實驗班著名</td>
+            </tr>
+            <tr>
+              <td><strong>北市華江 / 育成 / 萬芳高中</strong></td>
+              <td>臺北市（萬華 / 南港 / 文山）</td>
+              <td>約 20 ~ 22 分</td>
+              <td><span class="highlight-pill pill-green">穩健錄取</span> 北市公立高中安全名單</td>
+            </tr>
+            <tr>
+              <td><strong>市立新北高工</strong></td>
+              <td>新北市土城區（在地頂尖）</td>
+              <td>熱門科 20 ~ 23 分</td>
+              <td><span class="highlight-pill pill-green">全科任選</span> 全國頂尖技術型高中，資訊/電機榜首群</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4 style="font-size: 21px; color: #2563eb; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+          <span>🟡</span> 有望爭取區（錄取機率 60% ~ 80%，當前分數邊界）
+        </h4>
+        <table class="data-table" style="margin-bottom: 24px;">
+          <thead>
+            <tr>
+              <th>學校名稱</th>
+              <th>行政區</th>
+              <th>歷年錄取估計門檻</th>
+              <th>比序關鍵與機會</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>市立新北高中</strong></td>
+              <td>新北市三重區</td>
+              <td>約 22 ~ 23 分</td>
+              <td>意涵目前 22 分，若作文拿 5 級分（加 0.8 分）達 22.8 分機會極高</td>
+            </tr>
+            <tr>
+              <td><strong>北市南湖 / 百齡 / 陽明高中</strong></td>
+              <td>臺北市（內湖 / 士林）</td>
+              <td>約 22 ~ 23.6 分</td>
+              <td>落在錄取邊緣，視當年度作文與單科標示比序</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4 style="font-size: 21px; color: #d97706; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+          <span>🚀</span> 衝刺跳升區（★ 國文 B++ ➔ A 達到 4A 24分時直攻！）
+        </h4>
+        <div class="callout-box callout-amber">
+          <div>
+            <strong>國文只差 3 題進 A！</strong> 若國文在第二次模考躍升為 A，總積分將達 <strong>23.6 ~ 24.8 分</strong>，落點將直接晉升至：<br>
+            • <strong>新北公立前段名校：</strong> <strong>中和高中</strong>（約 24~25 分）、<strong>永平高中</strong>（約 23~24 分）、<strong>新莊高中</strong>（約 23~24 分）、<strong>海山高中</strong>（約 25~26 分）。<br>
+            • <strong>臺北市立前段高中：</strong> <strong>大直高中</strong>、<strong>和平高中</strong>、<strong>景美女中</strong>（約 24~26 分）。
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 標題抽屜 3：國文科深度診斷與 8 題錯題全紀錄 (Fade on scroll) -->
+    <details class="drawer reveal">
+      <summary class="drawer-header">
+        <div class="drawer-title-group">
+          <div class="drawer-icon">📖</div>
+          <div>
+            <div class="drawer-title">國文科深度診斷與 8 題錯題全紀錄（文言文 100% 全對！）</div>
+            <div class="drawer-hint">點擊展開：5大向度答對率與 8 題錯題清單（抓出 3 題粗心送分題）</div>
+          </div>
+        </div>
+        <div class="drawer-action">
+          <span>展開內容</span>
+          <div class="arrow-icon">▼</div>
+        </div>
+      </summary>
+      <div class="drawer-body">
+        <h4 style="font-size: 20px; margin-bottom: 10px; color: var(--primary);">國文五大知識點向度答對率</h4>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>知識點向度</th>
+              <th>總題數</th>
+              <th>個人答對率</th>
+              <th>全區答對率</th>
+              <th>評析亮點</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row" style="background: #f0fdf4;">
+              <td><strong>文言文題組</strong></td>
+              <td>4 題</td>
+              <td><strong style="color: #059669;">100.00% (4/4)</strong></td>
+              <td>58.08%</td>
+              <td><span class="highlight-pill pill-green">全數答對</span> 文言文底子極佳，遠超全區！</td>
+            </tr>
+            <tr class="highlight-row" style="background: #f0fdf4;">
+              <td><strong>語文常識</strong></td>
+              <td>3 題</td>
+              <td><strong style="color: #059669;">100.00% (3/3)</strong></td>
+              <td>79.86%</td>
+              <td><span class="highlight-pill pill-green">全數答對</span> 國學常識與修辭概念扎實</td>
+            </tr>
+            <tr>
+              <td><strong>形音義</strong></td>
+              <td>3 題</td>
+              <td>66.67% (2/3)</td>
+              <td>65.23%</td>
+              <td>僅錯 1 題</td>
+            </tr>
+            <tr style="background: #fffbeb;">
+              <td><strong>閱讀理解 (單題)</strong></td>
+              <td>18 題</td>
+              <td>77.78% (14/18)</td>
+              <td>75.43%</td>
+              <td>錯 4 題，白話短文推論小陷阱</td>
+            </tr>
+            <tr style="background: #fffbeb;">
+              <td><strong>白話文題組</strong></td>
+              <td>14 題</td>
+              <td>78.57% (11/14)</td>
+              <td>75.92%</td>
+              <td>錯 3 題，長文細節篩選粗心</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4 style="font-size: 20px; margin: 24px 0 10px 0; color: #b91c1c;">國文科 8 題錯題明細與抓漏清單</h4>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>題號</th>
+              <th>知識點</th>
+              <th>正解</th>
+              <th>作答</th>
+              <th>全區答對率</th>
+              <th>屬性與診斷</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row" style="background: #fef2f2;">
+              <td><strong>第 11 題</strong></td>
+              <td>單題 (閱讀)</td>
+              <td><strong>D</strong></td>
+              <td><strong>A</strong></td>
+              <td><strong style="color: #b91c1c;">91.70%</strong></td>
+              <td><span class="highlight-pill pill-green">超級基本送分題</span> 全區 9 成答對，看漏關鍵字失誤</td>
+            </tr>
+            <tr class="highlight-row" style="background: #fef2f2;">
+              <td><strong>第 28 題</strong></td>
+              <td>題組 (白話)</td>
+              <td><strong>D</strong></td>
+              <td><strong>B</strong></td>
+              <td><strong style="color: #b91c1c;">82.59%</strong></td>
+              <td><span class="highlight-pill pill-green">基礎送分題</span> 全區 82% 答對，被選項細節誘答</td>
+            </tr>
+            <tr class="highlight-row" style="background: #fffbeb;">
+              <td><strong>第 32 題</strong></td>
+              <td>題組 (白話)</td>
+              <td><strong>C</strong></td>
+              <td><strong>A</strong></td>
+              <td><strong>70.48%</strong></td>
+              <td><span class="highlight-pill pill-amber">中偏易題目</span> 全區 7 成答對，細節比對疏忽</td>
+            </tr>
+            <tr><td>第 36 題</td><td>題組 (白話)</td><td>B</td><td>D</td><td>59.84%</td><td>中偏難題，選項篩選</td></tr>
+            <tr><td>第 15 題</td><td>單題 (閱讀)</td><td>A</td><td>D</td><td>54.45%</td><td>中偏難題</td></tr>
+            <tr><td>第 8 題</td><td>單題 (形音義)</td><td>D</td><td>C</td><td>54.21%</td><td>字詞形音義辨別</td></tr>
+            <tr><td>第 21 題</td><td>單題 (閱讀)</td><td>A</td><td>B</td><td>40.70%</td><td>鑑別度高難題</td></tr>
+            <tr><td>第 18 題</td><td>單題 (閱讀)</td><td>D</td><td>A</td><td>37.04%</td><td>全卷大魔王題，做錯合理</td></tr>
+          </tbody>
+        </table>
+        <div class="callout-box callout-green">
+          <span>🎯</span>
+          <div>
+            <strong>國文衝 A 公式：</strong> 意涵文言文極強，根本不必重讀古文！只要考場上圈關鍵字、回頭檢查，撿回 <strong>第 11、28、32 題</strong> 這 3 題送分題：<strong>34 + 3 = 37 題</strong>，直接達標精熟 A 門檻！
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 標題抽屜 4：數學科深度診斷與 25 題答題分析 (Fade on scroll) -->
+    <details class="drawer reveal">
+      <summary class="drawer-header">
+        <div class="drawer-title-group">
+          <div class="drawer-icon">📐</div>
+          <div>
+            <div class="drawer-title">數學科深度診斷與 25 題答題分析（代數幾何全面全勝！）</div>
+            <div class="drawer-hint">點擊展開：10 大向度答對率與選擇題 3 題錯題分析</div>
+          </div>
+        </div>
+        <div class="drawer-action">
+          <span>展開內容</span>
+          <div class="arrow-icon">▼</div>
+        </div>
+      </summary>
+      <div class="drawer-body">
+        <h4 style="font-size: 20px; margin-bottom: 10px; color: var(--primary);">數學十大知識點向度答對率</h4>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>知識點向度</th>
+              <th>總題數</th>
+              <th>個人答對率</th>
+              <th>全區答對率</th>
+              <th>表現狀態</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row" style="background: #f0fdf4;"><td>整數的運算</td><td>4 題</td><td><strong>100.00%</strong></td><td>71.62%</td><td><span class="highlight-pill pill-green">全對</span></td></tr>
+            <tr class="highlight-row" style="background: #f0fdf4;"><td>一元一次方程式</td><td>3 題</td><td><strong>100.00%</strong></td><td>63.43%</td><td><span class="highlight-pill pill-green">全對</span></td></tr>
+            <tr class="highlight-row" style="background: #f0fdf4;"><td>二元一次聯立方程式</td><td>1 題</td><td><strong>100.00%</strong></td><td>62.31%</td><td><span class="highlight-pill pill-green">全對</span></td></tr>
+            <tr class="highlight-row" style="background: #f0fdf4;"><td>一元一次不等式</td><td>2 題</td><td><strong>100.00%</strong></td><td>55.79%</td><td><span class="highlight-pill pill-green">全對</span></td></tr>
+            <tr class="highlight-row" style="background: #f0fdf4;"><td>平面幾何圖形</td><td>1 題</td><td><strong>100.00%</strong></td><td>85.86%</td><td><span class="highlight-pill pill-green">全對</span></td></tr>
+            <tr class="highlight-row" style="background: #f0fdf4;"><td>立體幾何圖形</td><td>1 題</td><td><strong>100.00%</strong></td><td>61.05%</td><td><span class="highlight-pill pill-green">全對</span></td></tr>
+            <tr class="highlight-row" style="background: #f0fdf4;"><td>統計與機率</td><td>2 題</td><td><strong>100.00%</strong></td><td>66.69%</td><td><span class="highlight-pill pill-green">全對</span></td></tr>
+            <tr><td>分數的運算</td><td>5 題</td><td>80.00% (4/5)</td><td>55.73%</td><td>錯第 21 題 (全卷魔王題 33%)</td></tr>
+            <tr><td>平面直角坐標系</td><td>4 題</td><td>75.00% (3/4)</td><td>62.78%</td><td>錯第 12 題 (62%)</td></tr>
+            <tr><td>比例式</td><td>2 題</td><td>50.00% (1/2)</td><td>45.82%</td><td>錯第 23 題 (終極大魔王 24%)</td></tr>
+          </tbody>
+        </table>
+
+        <h4 style="font-size: 20px; margin: 24px 0 10px 0; color: #b91c1c;">數學選擇題 3 題錯題明細</h4>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>題號</th>
+              <th>知識點</th>
+              <th>正解</th>
+              <th>作答</th>
+              <th>全區答對率</th>
+              <th>屬性診斷</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>第 12 題</strong></td><td>平面直角坐標系</td><td><strong>B</strong></td><td><strong>D</strong></td><td>62.64%</td><td>🟡 唯一非難題失分，坐標正負號小疏忽</td></tr>
+            <tr><td><strong>第 21 題</strong></td><td>分數的運算</td><td><strong>D</strong></td><td><strong>C</strong></td><td><strong>33.05%</strong></td><td>🔴 全卷魔王題，三分之二考生陣亡</td></tr>
+            <tr><td><strong>第 23 題</strong></td><td>比例式</td><td><strong>C</strong></td><td><strong>B</strong></td><td><strong>24.39%</strong></td><td>🟣 全卷終極大魔王，連 5A 考生都大量翻車</td></tr>
+          </tbody>
+        </table>
+        <div class="callout-box callout-blue">
+          <span>💡</span>
+          <div>
+            <strong>非選題得分加強（當前得 3 / 6 分）：</strong> 第 1 題得 1/3 分、第 2 題得 2/3 分。加權已達 82.30 分，只要非選題列式步驟寫滿拿到 5~6 分，加權將衝破 86 分，<strong>直接直取 A+ 甚至挑戰 A++！</strong>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 標題抽屜 5：社會科深度診斷與 20 題錯題全紀錄 (Fade on scroll) -->
+    <details class="drawer reveal">
+      <summary class="drawer-header">
+        <div class="drawer-title-group">
+          <div class="drawer-icon">🌏</div>
+          <div>
+            <div class="drawer-title">社會科深度診斷與 20 題錯題剖析（★全科最大拉分金礦）</div>
+            <div class="drawer-hint">點擊展開：6大向度答對率與 4 題「痛心送分題」急救清單</div>
+          </div>
+        </div>
+        <div class="drawer-action">
+          <span>展開內容</span>
+          <div class="arrow-icon">▼</div>
+        </div>
+      </summary>
+      <div class="drawer-body">
+        <h4 style="font-size: 20px; margin-bottom: 10px; color: var(--primary);">社會六大知識點向度答對率</h4>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>知識點向度</th>
+              <th>總題數</th>
+              <th>個人答對率</th>
+              <th>全區答對率</th>
+              <th>診斷狀態</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row" style="background: #f0fdf4;"><td>臺灣史前~清帝國</td><td>6 題</td><td><strong>83.33% (5/6)</strong></td><td>70.45%</td><td><span class="highlight-pill pill-green">優勢單元</span> 早期歷史觀念清晰</td></tr>
+            <tr class="highlight-row" style="background: #f0fdf4;"><td>臺灣自然地理</td><td>8 題</td><td><strong>75.00% (6/8)</strong></td><td>61.00%</td><td><span class="highlight-pill pill-green">優勢單元</span> 地形氣候水文扎實</td></tr>
+            <tr><td>社會生活</td><td>9 題</td><td>66.67% (6/9)</td><td>70.94%</td><td>錯 3 題</td></tr>
+            <tr><td>臺灣人文地理</td><td>10 題</td><td>60.00% (6/10)</td><td>66.05%</td><td>錯 4 題，產業人口圖表稍弱</td></tr>
+            <tr style="background: #fffbeb;"><td>臺灣日治~戰後</td><td>12 題</td><td><strong style="color: #b91c1c;">58.33% (7/12)</strong></td><td>58.93%</td><td><span class="highlight-pill pill-amber">重災區</span> 錯 5 題！歷史時間軸易混淆</td></tr>
+            <tr style="background: #fef2f2;"><td>個人與社群</td><td>9 題</td><td><strong style="color: #b91c1c;">44.44% (4/9)</strong></td><td>71.29%</td><td><span class="highlight-pill pill-red">最大漏洞</span> 錯 5 題！遠低於全區平均</td></tr>
+          </tbody>
+        </table>
+
+        <h4 style="font-size: 20px; margin: 24px 0 10px 0; color: #b91c1c;">社會科 4 大「痛心送分題」與高頻錯題</h4>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>題號</th>
+              <th>向度</th>
+              <th>正解</th>
+              <th>作答</th>
+              <th>全區答對率</th>
+              <th>診斷剖析</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row" style="background: #fef2f2;">
+              <td><strong>第 10 題</strong></td>
+              <td>公民 (個人與社群)</td>
+              <td><strong>C</strong></td>
+              <td><strong>B</strong></td>
+              <td><strong style="color: #b91c1c;">88.92%</strong></td>
+              <td>🚨 <strong>最痛心送分題！</strong> 全區近 9 成對，家庭親屬關係概念看錯</td>
+            </tr>
+            <tr class="highlight-row" style="background: #fef2f2;">
+              <td><strong>第 24 題</strong></td>
+              <td>公民 (個人與社群)</td>
+              <td><strong>C</strong></td>
+              <td><strong>D</strong></td>
+              <td><strong style="color: #b91c1c;">84.97%</strong></td>
+              <td>🚨 <strong>痛心送分題！</strong> 全區 85% 對，團體規範與公約粗心</td>
+            </tr>
+            <tr class="highlight-row" style="background: #fef2f2;">
+              <td><strong>第 31 題</strong></td>
+              <td>歷史 (日治~戰後)</td>
+              <td><strong>B</strong></td>
+              <td><strong>D</strong></td>
+              <td><strong style="color: #b91c1c;">81.85%</strong></td>
+              <td>🚨 <strong>痛心送分題！</strong> 全區 82% 對，日治統治政策時間線看錯</td>
+            </tr>
+            <tr class="highlight-row" style="background: #fffbeb;">
+              <td><strong>第 27 題</strong></td>
+              <td>地理 (人文地理)</td>
+              <td><strong>C</strong></td>
+              <td><strong>D</strong></td>
+              <td>70.59%</td>
+              <td>🟡 全區 7 成對，人口與產業轉型題</td>
+            </tr>
+            <tr class="highlight-row" style="background: #fffbeb;">
+              <td><strong>第 26 題</strong></td>
+              <td>地理 (人文地理)</td>
+              <td><strong>A</strong></td>
+              <td><strong>D</strong></td>
+              <td>70.42%</td>
+              <td>🟡 全區 7 成對，交通聚落分佈題</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="callout-box callout-amber">
+          <span>💡</span>
+          <div>
+            <strong>社會搶分急救處方：</strong> 意涵錯的 20 題中，光是「公民個人與社群（錯5題）」與「歷史日治戰後（錯5題）」就佔了一半（10題）！只要花 2 天把公民課本第 1~2 冊名詞與日治大事記掃一遍，撿回這 3 題送分題與概念題，**題數立即從 34 題跳上 40 題以上，直接晉升 B++（39題）！**
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 標題抽屜 6：自然科深度診斷 (Fade on scroll) -->
+    <details class="drawer reveal">
+      <summary class="drawer-header">
+        <div class="drawer-title-group">
+          <div class="drawer-icon">🔬</div>
+          <div>
+            <div class="drawer-title">自然科深度診斷與 8 題錯題剖析（生物營養/理化實驗 100%）</div>
+            <div class="drawer-hint">點擊展開：7 大向度答對率與理化「光與熱」單元補強對策</div>
+          </div>
+        </div>
+        <div class="drawer-action">
+          <span>展開內容</span>
+          <div class="arrow-icon">▼</div>
+        </div>
+      </summary>
+      <div class="drawer-body">
+        <h4 style="font-size: 20px; margin-bottom: 10px; color: var(--primary);">自然七大知識點向度答對率</h4>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>知識點向度</th>
+              <th>總題數</th>
+              <th>個人答對率</th>
+              <th>全區答對率</th>
+              <th>表現狀態</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row" style="background: #f0fdf4;"><td>生物的營養與運輸</td><td>8 題</td><td><strong>100.00%</strong></td><td>64.02%</td><td><span class="highlight-pill pill-green">全對</span> 遠超全區</td></tr>
+            <tr class="highlight-row" style="background: #f0fdf4;"><td>理化實驗與測量</td><td>3 題</td><td><strong>100.00%</strong></td><td>67.58%</td><td><span class="highlight-pill pill-green">全對</span></td></tr>
+            <tr class="highlight-row" style="background: #f0fdf4;"><td>理化物質與組成</td><td>4 題</td><td><strong>100.00%</strong></td><td>45.92%</td><td><span class="highlight-pill pill-green">全對</span> 全區不到五成，意涵全對！</td></tr>
+            <tr class="highlight-row" style="background: #f0fdf4;"><td>生物的協調與恆定</td><td>11 題</td><td><strong>90.91% (10/11)</strong></td><td>67.63%</td><td>僅錯 1 題</td></tr>
+            <tr><td>生活中常見的反應</td><td>4 題</td><td>75.00% (3/4)</td><td>53.99%</td><td>錯第 43 題</td></tr>
+            <tr><td>生命與細胞</td><td>6 題</td><td>66.67% (4/6)</td><td>68.41%</td><td>錯第 4、9 題</td></tr>
+            <tr style="background: #fffbeb;"><td>理化聲音、光與熱</td><td>14 題</td><td><strong style="color: #b91c1c;">71.43% (10/14)</strong></td><td>52.85%</td><td><span class="highlight-pill pill-amber">集中失分區</span> 錯 4 題 (第13, 31, 33, 38題)</td></tr>
+          </tbody>
+        </table>
+        <div class="callout-box callout-green">
+          <span>💡</span>
+          <div>
+            <strong>自然升級 A+ 策略：</strong> 自然科 8 題錯題中有一半集中在「聲音、光與熱」單元（透鏡成像、比熱吸放熱）。考前只要針對該單元做錯題回顧，多對 3~4 題，**自然就能直攻 A+ 甚至 A++！**
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 標題抽屜 7：英語科深度診斷 (Fade on scroll) -->
+    <details class="drawer reveal">
+      <summary class="drawer-header">
+        <div class="drawer-title-group">
+          <div class="drawer-icon">🔤</div>
+          <div>
+            <div class="drawer-title">英語科深度診斷（閱讀測驗 20 題 100% 全對！）</div>
+            <div class="drawer-hint">點擊展開：長篇閱讀 0 失誤神級表現與英聽數據</div>
+          </div>
+        </div>
+        <div class="drawer-action">
+          <span>展開內容</span>
+          <div class="arrow-icon">▼</div>
+        </div>
+      </summary>
+      <div class="drawer-body">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>測驗項目</th>
+              <th>向度</th>
+              <th>總題數</th>
+              <th>個人答對率</th>
+              <th>全區答對率</th>
+              <th>評析</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row" style="background: #f0fdf4;"><td>英語閱讀</td><td>閱讀測驗 (長文題組)</td><td>20 題</td><td><strong>100.00%</strong></td><td>63.53%</td><td><span class="highlight-pill pill-green">神級實力</span> 20 題長篇閱讀全勝！</td></tr>
+            <tr><td>英語閱讀</td><td>語法</td><td>10 題</td><td>90.00% (9/10)</td><td>72.21%</td><td>錯第 10 題</td></tr>
+            <tr><td>英語閱讀</td><td>語意</td><td>9 題</td><td>88.89% (8/9)</td><td>77.32%</td><td>錯第 8 題</td></tr>
+            <tr><td>英語閱讀</td><td>克漏字測驗</td><td>4 題</td><td>75.00% (3/4)</td><td>61.09%</td><td>錯第 43 題</td></tr>
+            <tr class="highlight-row" style="background: #f0fdf4;"><td>英語聽力</td><td>辨識句意</td><td>3 題</td><td><strong>100.00%</strong></td><td>89.01%</td><td>全對</td></tr>
+            <tr class="highlight-row" style="background: #f0fdf4;"><td>英語聽力</td><td>基本問答</td><td>8 題</td><td><strong>100.00%</strong></td><td>80.28%</td><td>全對</td></tr>
+            <tr><td>英語聽力</td><td>言談理解</td><td>10 題</td><td>90.00% (9/10)</td><td>71.08%</td><td>僅錯第 18 題</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <!-- 標題抽屜 8：本機官方正式 PDF 檔案 (Fade on scroll) -->
+    <details class="drawer reveal">
+      <summary class="drawer-header">
+        <div class="drawer-title-group">
+          <div class="drawer-icon">📁</div>
+          <div>
+            <div class="drawer-title">官方正式 PDF 報表與對照表（已全數下載存檔）</div>
+            <div class="drawer-hint">已存於「官方報表與樣卷」資料夾，點擊即可直接打開</div>
+          </div>
+        </div>
+        <div class="drawer-action">
+          <span>展開內容</span>
+          <div class="arrow-icon">▼</div>
+        </div>
+      </summary>
+      <div class="drawer-body">
+        <div class="pdf-grid">
+          <a class="pdf-card" href="官方報表與樣卷/RN000_數學科非選擇題樣卷說明.pdf" target="_blank">
+            <div class="pdf-badge">PDF</div>
+            <div class="pdf-info"><div class="pdf-title">RN000 數學科非選擇題樣卷說明</div><div class="pdf-sub">大小: 1.4 MB ｜ 官方閱卷規準與範例</div></div>
+          </a>
+          <a class="pdf-card" href="官方報表與樣卷/RN001_全國15區會考積分標準與比序原則對照表.pdf" target="_blank">
+            <div class="pdf-badge">PDF</div>
+            <div class="pdf-info"><div class="pdf-title">RN001 全國15區會考積分標準對照表</div><div class="pdf-sub">大小: 260 KB ｜ 基北區36計分與比序規則</div></div>
+          </a>
+          <a class="pdf-card" href="官方報表與樣卷/RN002_各科等級標示與答對題數對照表.pdf" target="_blank">
+            <div class="pdf-badge">PDF</div>
+            <div class="pdf-info"><div class="pdf-title">RN002 各科等級標示與答對題數對照表</div><div class="pdf-sub">大小: 104 KB ｜ 五科 A++ ~ C 門檻</div></div>
+          </a>
+          <a class="pdf-card" href="官方報表與樣卷/RN003_數學科加權分數與等級標示對照表.pdf" target="_blank">
+            <div class="pdf-badge">PDF</div>
+            <div class="pdf-info"><div class="pdf-title">RN003 數學科加權分數對照表</div><div class="pdf-sub">大小: 106 KB ｜ 選擇與非選交叉換算</div></div>
+          </a>
+          <a class="pdf-card" href="官方報表與樣卷/RN004_英語科加權分數與等級標示對照表.pdf" target="_blank">
+            <div class="pdf-badge">PDF</div>
+            <div class="pdf-info"><div class="pdf-title">RN004 英語科加權分數對照表</div><div class="pdf-sub">大小: 247 KB ｜ 閱讀與聽力交叉換算</div></div>
+          </a>
+        </div>
+      </div>
+    </details>
+
+    <!-- 第二次模考行動指南 (Fade on scroll) -->
+    <section class="section-card reveal" style="border-left: 6px solid var(--primary);">
+      <div class="section-title">
+        <span class="icon-badge">🚀</span>
+        <span>第二次模考（4A~5A 衝刺）精準作戰行動指南</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px; font-size: 19px;">
+        <div>
+          <strong style="color: #2563eb;">1. 國文科（首要衝刺）：練習「長文排除法與劃記關鍵詞」</strong><br>
+          意涵文言文與語文常識皆拿 100% 滿分！只要考場上圈出題幹「何者非」，把第 11、28、32 題這 3 題送分題撿回來，<strong>34 題立即變 37 題，穩拿精熟 A！</strong>
+        </div>
+        <div>
+          <strong style="color: #d97706;">2. 社會科（最大金礦）：急救「公民第 1 冊」與「日治歷史大事記」</strong><br>
+          針對錯題重災區「公民個人與社群（錯5題）」加強親屬與規範名詞；日治戰後大事記梳理時間軸。撿回第 10、24、31 題粗心題，<strong>從 34 題直衝 40 題跨入 B++！</strong>
+        </div>
+        <div>
+          <strong style="color: #059669;">3. 數學科（直攻 A+）：選擇題維持高標，補齊「非選書寫步驟」</strong><br>
+          代數幾何全面精熟。每週手寫 2 題非選題練習完整交代設未知數與求解步驟，爭取非選拿 5~6 分，加權直攻 86 分以上躍升 <strong>A+</strong>！
+        </div>
+        <div>
+          <strong style="color: #475569;">4. 英文科與自然科：定時刷題維持精熟敏銳度</strong><br>
+          英文 93.47 分、自然 42 題已穩拿精熟 A，自然科考前稍微複習「聲音、光與熱」計算即可。
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- 導向戰略決策 Tab 的大型推薦卡 (Fade on scroll) -->
+    <section class="section-card reveal" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; cursor: pointer; border: 1px solid rgba(255,255,255,0.12); margin-top: 10px;" onclick="switchTab('tab-strategy', true)">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+        <div style="max-width: 750px;">
+          <div class="badge-tag" style="background: rgba(99, 102, 241, 0.25); color: #c7d2fe; margin-bottom: 12px; border-color: rgba(99, 102, 241, 0.4);">
+            <span>🧭</span> 專屬升學決策導航
+          </div>
+          <h2 style="font-size: 26px; font-weight: 800; margin-bottom: 8px; color: #ffffff;">
+            深入評估：清水高中（普通高中繁星）vs 新北高工資訊科（技術高中統測）
+          </h2>
+          <p style="font-size: 18px; color: #cbd5e1; line-height: 1.6;">
+            已為您整合制度規則、繁星勝率精算（>80%）、統測錄取台科北科大數據與軟硬整合趨勢剖析。點擊立即查看完整決策矩陣！
+          </p>
+        </div>
+        <div>
+          <button class="nav-tab-btn" style="background: #2563eb; color: #ffffff; padding: 14px 28px; border-radius: 999px; font-size: 18px; box-shadow: 0 4px 14px rgba(37,99,235,0.4);" onclick="switchTab('tab-strategy', true)">
+            <span>查看升學決策剖析 ➔</span>
+          </button>
+        </div>
+      </div>
+    </section>
+</div><!-- END TAB 1 -->
+
+    <!-- ========================================== -->
+    <!-- TAB 2: 高中職與大學升學戰略剖析 -->
+    <!-- ========================================== -->
+    <div id="tab-strategy" class="tab-pane">
+      
+      <!-- Strategy Hero Banner (Fade on scroll) -->
+      <section class="strategy-hero reveal">
+        <div class="badge-tag" style="background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.25);">
+          <span>🧭</span> 升學進路核心重大抉擇 · 體制規章與大數據深度剖析
+        </div>
+        <h1 class="hero-title" style="font-size: 36px; margin-bottom: 14px;">
+          清水高中 vs 新北高工資訊科：高中職與大學升學深度決策剖析
+        </h1>
+        <p style="font-size: 20px; color: #cbd5e1; max-width: 980px; line-height: 1.7; margin-bottom: 22px;">
+          本報告排除情緒價值與重複性論述，依據意涵 115 第一次國中教育會考模考成績（<strong>3A 1B++ 1B+ / 總積分 22 分 / 個別序位 28.69%~29.07%</strong>），
+          以客觀升學制度規章、錄取大數據模型、大學四年同儕生態及產業長線需求進行嚴謹推導。
+        </p>
+        <div class="hero-meta" style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 18px; margin-top: 0;">
+          <span>🎯 <strong>唯一戰略錨點：</strong> 國立大學資訊工程 / 科技相關科系（選系重於選校，絕不盲目追求頂大冷門系）</span>
+        </div>
+      </section>
+
+      <!-- 3 大核心基石 (Fade on scroll) -->
+      <section class="metric-grid reveal">
+        <div class="metric-card" style="border-top: 5px solid #2563eb;">
+          <div>
+            <div class="metric-label">核心目標確立</div>
+            <div class="metric-val" style="font-size: 28px; color: #2563eb;">國立資工優先</div>
+          </div>
+          <div class="metric-sub">
+            中字輩（中正/中興）、北大與老牌國立大學資工系。堅持專業對口，不選非資訊冷門科系。
+          </div>
+        </div>
+
+        <div class="metric-card" style="border-top: 5px solid #059669;">
+          <div>
+            <div class="metric-label">意涵核心優勢特質</div>
+            <div class="metric-val" style="font-size: 28px; color: #059669;">數理邏輯頂尖</div>
+          </div>
+          <div class="metric-sub">
+            數學選擇 88%、英文長篇 100% 全對、理化實驗滿分。邏輯思維嚴密，具備強大學術潛能。
+          </div>
+        </div>
+
+        <div class="metric-card" style="border-top: 5px solid #7c3aed;">
+          <div>
+            <div class="metric-label">兩大軌道路線定位</div>
+            <div class="metric-val" style="font-size: 28px; color: #7c3aed;">繁星 vs 統測</div>
+          </div>
+          <div class="metric-sub">
+            清水高中：學術理論＋繁星推薦長跑（勝率 >80%）<br>
+            新北高工：軟硬整合＋統測學科降維打擊（台科/北科 30~40%）
+          </div>
+        </div>
+      </section>
+
+      <!-- 雙軌戰略路徑核心概覽卡片 (Fade on scroll) -->
+      <div class="path-grid reveal">
+        <!-- 清水高中路徑卡 -->
+        <div class="path-card shimizu">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="path-badge badge-shimizu">普通高中學術軌道</span>
+            <span class="highlight-pill pill-blue">目標：中字輩/國立資工</span>
+          </div>
+          <div>
+            <h2 class="path-title">市立清水高中（繁星推薦直攻國立資工）</h2>
+            <p style="color: var(--text-muted); font-size: 18px; margin-top: 6px;">
+              土城在地公立高中就近入學，憑藉意涵國中模考 PR 81 實力進校，直取校排前 10% 頂尖繁星優勢。
+            </p>
+          </div>
+          <div class="stat-bar-box">
+            <div class="stat-bar-title">
+              <span>繁星推薦國立資工預估勝率</span>
+              <span style="color: #2563eb;">高達 80% 以上</span>
+            </div>
+            <div class="stat-bar-val" style="color: #2563eb;">80% ~ 85%</div>
+            <div style="font-size: 15px; color: var(--text-muted); margin-top: 4px;">
+              校排維持前 8% ~ 15%（全校 500 人中前 40~75 名）即可達成
+            </div>
+          </div>
+          <div style="font-size: 17px; line-height: 1.7; color: var(--text-main); display: flex; flex-direction: column; gap: 8px;">
+            <div><strong>🎓 大學分發機制：</strong> 志願序單填「資訊工程」，冷門留白，<strong>絕無隨機或被迫分發冷門系之風險</strong>。</div>
+            <div><strong>📈 大學同儕適應：</strong> 教育部 10 年官方追蹤：繁星生四年平均 GPA 全面領先考試分發生與申請生。</div>
+            <div><strong>⚖️ 核心代價：</strong> 高中三年需維持規律自律與多次段考穩定度。</div>
+          </div>
+        </div>
+
+        <!-- 新北高工資訊科路徑卡 -->
+        <div class="path-card ntvs">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="path-badge badge-ntvs">技術型高中專業軌道</span>
+            <span class="highlight-pill" style="background: #f5f3ff; color: #6d28d9;">目標：台科大 / 北科大資工</span>
+          </div>
+          <div>
+            <h2 class="path-title">市立新北高工 資訊科（四技統測筆試直攻頂尖科大）</h2>
+            <p style="color: var(--text-muted); font-size: 18px; margin-top: 6px;">
+              土城在地全國頂尖工科名校，資訊科為全校錄取分數最高王牌，全班目標高度一致。
+            </p>
+          </div>
+          <div class="stat-bar-box">
+            <div class="stat-bar-title">
+              <span>統測筆試錄取台科大 / 北科大比例</span>
+              <span style="color: #7c3aed;">全科 30% ~ 40%</span>
+            </div>
+            <div class="stat-bar-val" style="color: #7c3aed;">30% ~ 40%</div>
+            <div style="font-size: 15px; color: var(--text-muted); margin-top: 4px;">
+              資訊科內排名前 20~25 名，即有高機率登榜台科/北科資工
+            </div>
+          </div>
+          <div style="font-size: 17px; line-height: 1.7; color: var(--text-main); display: flex; flex-direction: column; gap: 8px;">
+            <div><strong>⚡ 戰略定位：</strong> 放棄技能競賽選手與繁星，純靠「統測紙筆測驗」國英數優勢<strong>降維打擊</strong>。</div>
+            <div><strong>🤖 軟硬整合前瞻：</strong> 兼具基本電學、電子學與數位電路實作，在 Edge AI、AIoT 與智慧硬體具備稀缺競爭力。</div>
+            <div><strong>⚖️ 核心代價：</strong> 高職數學 C 不教深層微積分，未來挑戰資工研究所需在大一大二自修補強高階微積分。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 戰略深究 1：清水高中繁星推薦制度與勝率精算 (Fade on scroll) -->
+      <details class="drawer reveal" open>
+        <summary class="drawer-header">
+          <div class="drawer-title-group">
+            <div class="drawer-icon" style="background: #eff6ff; color: #2563eb;">🏛️</div>
+            <div>
+              <div class="drawer-title">戰略路徑 A：清水高中 繁星推薦直攻國立資工深度精算</div>
+              <div class="drawer-hint">制度規則釐清、校排門檻推導、勝率大數據與四年大學適應性</div>
+            </div>
+          </div>
+          <div class="drawer-action">
+            <span>收合/展開</span>
+            <div class="arrow-icon">▼</div>
+          </div>
+        </summary>
+        <div class="drawer-body">
+          
+          <!-- 迷思破解 Callout -->
+          <div class="callout-box callout-blue">
+            <div style="font-size: 26px;">🛡️</div>
+            <div>
+              <strong style="font-size: 19px; display: block; margin-bottom: 4px;">重大制度迷思澄清：會不會被迫分發到化學系或不喜歡的冷門系？</strong>
+              <div style="color: #1e3a8a;">
+                <strong>答案是：絕對不會！</strong> 依大學繁星推薦委員會正式規章，考生在撕榜獲得某國立大學的第一學群（理工學群）推薦資格後，
+                填寫志願序是由學生自行上網登錄。學生<strong>可以完全只填寫單一志願「資訊工程學系」</strong>，其餘志願（如化學、材料、土木）全部留白。<br>
+                分發系統僅會比對學生填寫的志願，若資工系額滿未獲錄取，結果僅為「繁星未錄取」，直接接軌後續的個人申請與分科測驗，<strong>電腦絕對無權且絕不可能把學生隨機塞入未選填的科系！</strong>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="font-size: 21px; font-weight: 800; margin: 24px 0 12px 0;">1. 繁星推薦勝率精算：為何設定「國立中字輩/地名資工」勝率能突破 80%？</h3>
+          <p style="margin-bottom: 16px;">
+            多數人直覺認為「繁星必須全校前 1%~2% 才能用」，這是因為傳統上只看台清交成頂尖科系。但當戰略目標回歸到<strong>「專業對口的國立中字輩、老牌國立與地名大學資工系」</strong>時，繁星校排名門檻大幅拓寬：
+          </p>
+          
+          <table class="data-table" style="margin-bottom: 20px;">
+            <thead>
+              <tr>
+                <th style="width: 28%;">目標大學與科系</th>
+                <th style="width: 22%;">歷年繁星校排門檻</th>
+                <th style="width: 25%;">清水高中對應名次</th>
+                <th style="width: 25%;">意涵達成把握度</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>國立臺北大學 資訊工程學系</strong></td>
+                <td><span class="highlight-pill pill-blue">校排 5% ~ 8%</span></td>
+                <td>全校約前 25 ~ 40 名</td>
+                <td>機率約 65% ~ 70%</td>
+              </tr>
+              <tr>
+                <td><strong>國立中興大學 資訊工程學系</strong></td>
+                <td><span class="highlight-pill pill-blue">校排 6% ~ 10%</span></td>
+                <td>全校約前 30 ~ 50 名</td>
+                <td>機率約 70% ~ 75%</td>
+              </tr>
+              <tr class="highlight-row">
+                <td><strong>國立中正大學 資訊工程學系</strong></td>
+                <td><span class="highlight-pill pill-green">校排 10% ~ 14%</span></td>
+                <td>全校約前 50 ~ 70 名</td>
+                <td><strong>勝率高達 80% 以上！</strong></td>
+              </tr>
+              <tr>
+                <td><strong>國立地名大學 資工系（高雄/嘉義/宜蘭/東華）</strong></td>
+                <td><span class="highlight-pill pill-green">校排 15% ~ 25%</span></td>
+                <td>全校約前 75 ~ 125 名</td>
+                <td><strong>勝率高達 95% 絕對防禦！</strong></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="font-size: 18px; line-height: 1.7; background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px;">
+            <strong>🔢 數據推導依據：</strong>
+            <ul style="margin: 8px 0 0 20px; display: flex; flex-direction: column; gap: 6px;">
+              <li>清水高中高一全校人數約 500 人，高二文理分流後，自然組約 250 ~ 300 人。</li>
+              <li>意涵在本次模考國中校排已達前 <strong>18.75%（PR 81）</strong>，進入清水高中後，憑藉數學 88%、英文長文全對的數理英強大底蘊，在清水高中自然組維持在全校前 40 ~ 60 名（前 8% ~ 12%）的把握度極高。</li>
+              <li>繁星推薦每一所高中在同一所大學的第一學群僅能推薦 2 位學生，且不可填相同志願。只要校排維持在前 10% 左右，在校內協調會中，<strong>中正、中興、北大、地名國立資工系的推薦序位近乎十拿九穩</strong>。</li>
+            </ul>
+          </div>
+
+          <h3 style="font-size: 21px; font-weight: 800; margin: 26px 0 12px 0;">2. 大學同儕適應性：大數據證實「繁星生後勁最強」</h3>
+          <p style="margin-bottom: 14px;">
+            許多家長常有疑慮：「繁星進入中字輩資工，同班有許多建中、成功等聯考生，會不會被輾壓造成學業適應不良？」
+          </p>
+          <div class="callout-box callout-green">
+            <div style="font-size: 26px;">📊</div>
+            <div>
+              <strong style="font-size: 19px; display: block; margin-bottom: 4px;">教育部與頂尖大學歷時 10 年官方追蹤大數據：</strong>
+              <div style="color: #14532d;">
+                官方跨校大規模追蹤研究顯示，<strong>繁星推薦入學的學生，在大學四年的平均學業 GPA、各科及格率與順利畢業率，在三種入學管道中全面名列第一！</strong>（繁星生 > 申請入學生 > 考試分發生）。<br>
+                其核心關鍵在於：繁星生在高中三年培養了極高密度的自律性、規律的作息節奏與穩健的抗壓心理。大學課業比拼的不是高中單次大考的衝刺爆發力，而是「每週踏實出席、按時繳交作業與期中期末自律準備」。意涵具備嚴謹的數理邏輯底子，只要維持自律，大二、大三專業科目必能平順銜接甚至名列前茅。
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- 戰略深究 2：新北高工資訊科統測路徑 (Fade on scroll) -->
+      <details class="drawer reveal" open>
+        <summary class="drawer-header">
+          <div class="drawer-title-group">
+            <div class="drawer-icon" style="background: #f5f3ff; color: #7c3aed;">🛠️</div>
+            <div>
+              <div class="drawer-title">戰略路徑 B：新北高工資訊科 統測聯招直攻台科/北科深度精算</div>
+              <div class="drawer-hint">統測升學定位、降維打擊優勢、AI 軟硬整合前瞻與高階數學銜接</div>
+            </div>
+          </div>
+          <div class="drawer-action">
+            <span>收合/展開</span>
+            <div class="arrow-icon">▼</div>
+          </div>
+        </summary>
+        <div class="drawer-body">
+
+          <h3 style="font-size: 21px; font-weight: 800; margin: 10px 0 12px 0;">1. 戰略定位與升學真實錄取率：放棄選手/繁星，純靠「統測紙筆」</h3>
+          <ul style="margin-left: 20px; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;">
+            <li>
+              <strong>不當技藝競賽選手</strong>：高職選手培訓需長期脫產請公假集訓，一旦未在全國技能競賽奪牌即面臨學科荒廢之巨大風險；意涵應完全專注於日常學科。
+            </li>
+            <li>
+              <strong>不擠科大繁星</strong>：技高繁星全校僅 10 ~ 15 個名額，全校各科爭奪，名額稀少且不可控。
+            </li>
+            <li>
+              <strong>唯一核心：專注「四技二專統測紙筆測驗」</strong>（國文、英文、數學C、專業一、專業二）。
+            </li>
+            <li>
+              <strong>真實升學數據</strong>：新北高工資訊科為全校第一志願王牌（會考錄取門檻約 20~22 分，約 1A4B++ 到 2A3B，學生程度略高於或等同清水高中）。每年資訊科畢業生單純憑藉統測成績，<strong>考上「國立台灣科技大學 ＋ 國立台北科技大學」資工/電子相關科系的比例高達 30% ~ 40%</strong>！在科內排名前 20~25 名，即穩在頂尖科大安全名單內。
+            </li>
+          </ul>
+
+          <h3 style="font-size: 21px; font-weight: 800; margin: 24px 0 12px 0;">2. 意涵在技術高中的「非對稱競爭優勢」（降維打擊）</h3>
+          <p style="margin-bottom: 12px;">
+            四技統測是全國技術型高中生競爭的紙筆測驗。高職體系學生普遍存在「重專業、輕語文數理」的偏科現象，國文、英文與數學 C 往往是高職生難以拉開分數的罩門。
+          </p>
+          <div class="callout-box callout-amber">
+            <div style="font-size: 26px;">⚡</div>
+            <div>
+              <strong style="font-size: 19px; display: block; margin-bottom: 4px;">意涵的壓倒性優勢：</strong>
+              <div style="color: #78350f;">
+                意涵具備國中模考 3A 水準，其數理代數幾何推導力（數學 88 分）與長篇英文閱測力（英閱 20 題全對）在技術高中學生族群中屬於頂標梯隊。
+                只要在專業科目（專一：數位邏輯/基本電學；專二：電子學/微處理機）正常投入學習，<strong>在三科共同科目上將形成對競爭對手的巨大分數護城河</strong>，統測總分極易拉升至全國前段。
+              </div>
+            </div>
+          </div>
+
+          <h3 style="font-size: 21px; font-weight: 800; margin: 24px 0 12px 0;">3. 軟硬整合之產業前瞻價值（認可實習課程的遠見）</h3>
+          <div style="font-size: 18px; line-height: 1.7; background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 20px;">
+            <p style="margin-bottom: 12px;">
+              家長認可資訊科的實習課程（基本電學、電子學、電路板製作、單晶片與微處理機），<strong>這在未來 10 年的科技產業趨勢中展現了極具遠見的敏銳度</strong>：
+            </p>
+            <ul style="margin-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+              <li><strong>AI 落地化趨勢</strong>：AI 已經從單純的雲端大模型，全速走向<strong>「邊緣運算 (Edge AI)、自駕車系統、智慧製造物聯網 (AIoT) 與無人載具」</strong>。</li>
+              <li><strong>人才稀缺性</strong>：純普通高中出身的資工系學生，往往只擅長高階軟體演算法，對底層電路訊號、示波器、GPIO 晶片控制一無所知；而高職資訊科出身的學生，從高一即開始動手焊接電路、除錯硬體訊號，<strong>具備兼具「底層電路驅動韌體」與「軟體邏輯」的軟硬通吃能力</strong>，在半導體整合與智慧硬體研發領域極受歡迎。</li>
+            </ul>
+          </div>
+
+          <h3 style="font-size: 21px; font-weight: 800; margin: 24px 0 12px 0;">4. 客觀現實與需面對的高階學術斷層</h3>
+          <table class="data-table" style="margin-bottom: 10px;">
+            <thead>
+              <tr>
+                <th style="width: 25%;">向度</th>
+                <th style="width: 75%;">客觀現實分析</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>同儕起點一致</strong></td>
+                <td>
+                  台科大與北科大資工系 90% 學生皆來自技術高中統測管道，大家的高中學習背景與專業起點完全相同，大學課堂上<strong>同儕心理壓力最小、適應最平順</strong>。
+                </td>
+              </tr>
+              <tr>
+                <td><strong>高階數學斷層</strong></td>
+                <td>
+                  <span class="highlight-pill pill-amber">關鍵客觀短板</span> 高職數學 C 課程綱要著重實用計算，未涵蓋深層微積分技巧、嚴謹空間向量證明與線性代數基礎。<br>
+                  未來如果要在台科/北科大挑戰演算法底層研究、3D 圖形渲染架構，或是大四考取頂大（台大/清大/交大）資工研究所，<strong>大一大二必須有自律自學意識，主動補強工程數學與微積分</strong>。
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </details>
+
+      <!-- 戰略深究 3：清水高中 vs 新北高工資訊科 終極決策對比矩陣 (Fade on scroll) -->
+      <section class="section-card reveal">
+        <div class="section-title">
+          <span class="icon-badge">⚖️</span>
+          <span>清水高中 vs 新北高工資訊科 終極決策對比矩陣</span>
+        </div>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">
+          以下為兩校升學進路在入學門檻、課程重心、同儕環境、錄取勝率、初期壓力與長線職涯的 6 大維度客觀綜合比較：
+        </p>
+
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th class="matrix-dim">評比向度</th>
+              <th class="matrix-col-a" style="color: #2563eb;">🏛️ 清水高中（普通高中 ➔ 繁星中字輩資工）</th>
+              <th class="matrix-col-b" style="color: #7c3aed;">🛠️ 新北高工資訊科（技術高中 ➔ 統測台科/北科資工）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="matrix-dim">1. 會考門檻與生源程度</td>
+              <td class="matrix-col-a">
+                約 19 ~ 21 分（5B++ 到 1A4B）。<br>
+                意涵（22分）進入屬於<strong>校內前 10% 頂尖梯隊</strong>。
+              </td>
+              <td class="matrix-col-b">
+                約 <strong>20 ~ 22 分（1A4B++ 到 2A3B）</strong>。<br>
+                資訊科為全校第一志願，學生程度<strong>略高於或打平清水高中</strong>。
+              </td>
+            </tr>
+            <tr>
+              <td class="matrix-dim">2. 三年專業學習重心</td>
+              <td class="matrix-col-a">
+                <strong>純學術理論體系</strong>：國英數社自高階理論，數 A 深度微積分與空間向量，高三前不接觸電路與硬體實作。
+              </td>
+              <td class="matrix-col-b">
+                <strong>軟硬兼修體系</strong>：半數時間投入基本電學、電子學、數位邏輯、單晶片微處理機與電路實作，理論與實作並重。
+              </td>
+            </tr>
+            <tr>
+              <td class="matrix-dim">3. 同儕氛圍與讀書風氣</td>
+              <td class="matrix-col-a">
+                學生志向多元（文法商理工混合），讀書風氣呈雙峰分佈，需具備強大的<strong>抗誘惑自律力與穩健長跑作息</strong>。
+              </td>
+              <td class="matrix-col-b">
+                資訊科為全校升學指標班，全班目標高度一致聚焦科大資工，班級專業技術研究風氣與同儕凝聚力強。
+              </td>
+            </tr>
+            <tr>
+              <td class="matrix-dim">4. 目標大學升學勝率</td>
+              <td class="matrix-col-a">
+                <span class="highlight-pill pill-green">勝率高達 80% ~ 85%</span><br>
+                校排維持前 8% ~ 15%（全校前 40~75 名）即可穩錄取中正、中興、北大或地名國立資工系。
+              </td>
+              <td class="matrix-col-b">
+                <span class="highlight-pill pill-blue">勝率約 30% ~ 40%</span><br>
+                科內需排名前 20~25 名可登榜台科/北科大，其餘前段分流至雲科大、高科大等國立科大資工。
+              </td>
+            </tr>
+            <tr>
+              <td class="matrix-dim">5. 大學初期同儕與壓力</td>
+              <td class="matrix-col-a">
+                班級有建中、成功等聯考生，大一學術理論競爭感較強；但繁星生自律性高、意涵數理底蘊足，大二專業科目順利銜接。
+              </td>
+              <td class="matrix-col-b">
+                90% 同儕皆為高職統測生，大家起點完全相同，大學初期適應最平順；唯大一大二需自主補強高階微積分。
+              </td>
+            </tr>
+            <tr>
+              <td class="matrix-dim">6. 長線就業與研發優勢</td>
+              <td class="matrix-col-a">
+                <strong>演算法與純軟體優勢</strong>：數學理論扎實，走雲端系統、AI 模型訓練、大數據與考取頂大資工研究所實力深厚。
+              </td>
+              <td class="matrix-col-b">
+                <strong>軟硬整合實戰優勢</strong>：具備電路與底層硬體經驗，在 Edge AI、AIoT 物聯網、韌體工程師與硬體整合領域具稀缺性。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 戰略決策行動指引 (Fade on scroll) -->
+      <section class="section-card reveal" style="border-left: 6px solid #6366f1;">
+        <div class="section-title">
+          <span class="icon-badge" style="background: #eef2ff; color: #6366f1;">🎯</span>
+          <span>家長與意涵的戰略決策執行指引（Actionable Roadmap）</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 18px; font-size: 19px; line-height: 1.75;">
+          <div>
+            <strong style="color: #2563eb; font-size: 20px;">第一階段（會考前）：維持「不分流策略」，全力衝刺分數</strong><br>
+            清水高中（約 20~21 分）與新北高工資訊科（約 21~22 分）錄取門檻高度重疊。當前意涵總積分 22 分已達安全線，
+            此階段唯一的任務就是<strong>把國文 3 題（跨入 4A）與社會 3 題（跨入 B++）撿回來，將分數拉升至 23.6~24.8 分</strong>。
+            分數拉得越高，意涵在 6 月份志願選填時就擁有 100% 的絕對主導選擇權。
+          </div>
+          <div>
+            <strong style="color: #7c3aed; font-size: 20px;">第二階段（會考後志願選填）：以「意涵性格與生活形態」作為最終定奪標準</strong><br>
+            兩條路徑皆能通往優質國立資工體系，終極抉擇回歸意涵的特質與偏好：
+            <ul style="margin: 8px 0 0 24px; display: flex; flex-direction: column; gap: 8px;">
+              <li>
+                <strong>👉 選擇 清水高中（繁星路徑）之判斷指標：</strong>
+                若意涵更享受「抽象數學推導、邏輯思考、純軟體編程」，且具備高中三年每天規律複習、維持段考前 10% 的自律長跑耐力 ➔ <strong>清水高中繁星推薦為勝率最高（>80%）且理論天花板最高的最佳解。</strong>
+              </li>
+              <li>
+                <strong>👉 選擇 新北高工資訊科（統測路徑）之判斷指標：</strong>
+                若意涵對「動手接線路、看電路板亮燈、組裝硬體與實體測試」具備濃烈興趣，且希望高中同學目標一致、大學同儕背景單純無明星高中學術壓力 ➔ <strong>新北高工資訊科將是能將數理優勢發揮到極致的優質選擇。</strong>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top: 28px; text-align: center;">
+          <button class="nav-tab-btn active" style="display: inline-flex; width: auto; padding: 14px 32px; border-radius: 999px; background: #2563eb; color: #fff; font-size: 18px;" onclick="switchTab('tab-diagnosis', true)">
+            <span>⬅ 返回「模考成績與各科診斷」報告</span>
+          </button>
+        </div>
+      </section>
+
+    </div>
+    <!-- END TAB 2 -->
+<footer>
+      <p>115 學年度國中教育會考第一次模擬測驗 · 學習大數據深度診斷系統</p>
+      <p style="margin-top: 6px; font-size: 15px;">報告建立日期：2026-09-16 ｜ 測驗機構：南一書局評鑑測驗中心</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Tab switching logic
+    function switchTab(tabId, scrollToTop = false) {
+      // Update buttons
+      document.querySelectorAll('.nav-tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabId) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      // Update panes
+      document.querySelectorAll('.tab-pane').forEach(pane => {
+        if (pane.id === tabId) {
+          pane.classList.add('active');
+        } else {
+          pane.classList.remove('active');
+        }
+      });
+
+      // Update URL hash without jumping
+      if (history.pushState) {
+        history.pushState(null, null, '#' + (tabId === 'tab-strategy' ? 'strategy' : 'diagnosis'));
+      } else {
+        location.hash = (tabId === 'tab-strategy' ? 'strategy' : 'diagnosis');
+      }
+
+      // Re-trigger reveal animation observer for the new tab
+      setTimeout(() => {
+        const activePane = document.getElementById(tabId);
+        if (activePane) {
+          const reveals = activePane.querySelectorAll('.reveal');
+          reveals.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 30) {
+              el.classList.add('active');
+            }
+          });
+        }
+      }, 50);
+
+      if (scrollToTop) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Initialize tab from URL hash if present
+    document.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === '#strategy' || hash === '#college') {
+        switchTab('tab-strategy', false);
+      } else {
+        switchTab('tab-diagnosis', false);
+      }
+
+      // Intersection observer for reveals
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          } else {
+            entry.target.classList.remove('active');
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+      reveals.forEach(el => observer.observe(el));
+    });
+
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === '#strategy' || hash === '#college') {
+        switchTab('tab-strategy', false);
+      } else {
+        switchTab('tab-diagnosis', false);
+      }
+    });
+</script>
+</body>
+</html>
